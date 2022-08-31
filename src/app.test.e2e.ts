@@ -31,7 +31,7 @@ describe('App', () => {
       });
   });
 
-  it('Should get unathorized', (done) => {
+  it('Should get unauthorized', (done) => {
     request(app)
       .get('/user')
       .set('Content-Type', 'application/json')
