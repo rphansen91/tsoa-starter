@@ -1,4 +1,3 @@
-import cors from 'cors';
 import morgan from 'morgan';
 import express from 'express';
 import bodyParser from 'body-parser';
@@ -13,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(responseTime());
 app.use(morgan('tiny'));
-app.use(cors());
+// app.use(cors());
 
 RegisterDocs(app);
 RegisterRoutes(app);
