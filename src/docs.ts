@@ -1,10 +1,5 @@
 import express, { Application } from 'express';
-import swaggerUi, { JsonObject } from 'swagger-ui-express';
-import { cleanEnv, str } from 'envalid';
-
-const env = cleanEnv(process.env, {
-  LOGO: str({ default: '/logo.png' }),
-});
+import swaggerUi, { JsonObject, SwaggerUiOptions } from 'swagger-ui-express';
 
 export function RegisterDocs(app: Application) {
   app.use(express.static('public'));
@@ -16,11 +11,15 @@ export function RegisterDocs(app: Application) {
 }
 
 function generateHTML(doc: JsonObject) {
-  return swaggerUi.generateHTML(doc, {
-    customSiteTitle: doc.info.title,
-    customCss: `.swagger-ui img { content: url(${env.LOGO}); }`,
-    customfavIcon: '/favicon.ico',
-  });
+  const opts: SwaggerUiOptions = {};
+  opts.customSiteTitle = doc.info.title;
+  if (doc.info['x-logo']) {
+    opts.customCss = `.swagger-ui img { content: url(${doc.info['x-logo']}); }`;
+  }
+  if (doc.info['x-favicon']) {
+    opts.customfavIcon = doc.info['x-favicon'];
+  }
+  return swaggerUi.generateHTML(doc, opts);
 }
 
 function loadSwagger() {

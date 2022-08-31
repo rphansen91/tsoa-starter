@@ -12,8 +12,9 @@
     "test:e2e": "jest --testRegex '\\.e2e\\.(ts|tsx|js)$'",
     "dev": "dotenv -- nodemon",
     "start": "node dist/src/index.js",
-    "generate": "rm -f src/generated/routes.ts && tsoa spec-and-routes",
-    "build": "npm run generate && tsc --pretty",
+    "generate": "tsoa spec-and-routes",
+    "prebuild": "npm run generate",
+    "build": "tsc --pretty",
     "lint": "eslint ./src",
     "fix": "eslint ./src --fix",
     "format:check": "prettier --check src"

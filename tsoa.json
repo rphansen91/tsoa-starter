@@ -1,5 +1,5 @@
 {
-  "entryFile": "src/app.ts",
+  "entryFile": "src/controllers.ts",
   "noImplicitAdditionalProperties": "throw-on-extras",
   "spec": {
     "name": "TSOA Starter",
@@ -11,7 +11,14 @@
         "name": "access_token",
         "in": "header"
       }
-    }
+    },
+    "spec": {
+      "info": {
+        "x-logo": "/logo.png",
+        "x-favicon": "/favicon.ico"
+      }
+    },
+    "specMerging": "deepmerge"
   },
   "routes": {
     "routesDir": "src/generated",
