@@ -25,4 +25,4 @@ jobs:
 
       - name: Test image
         run: |
-          docker run --rm -it $IMAGE_NAME:$IMAGE_TAG yarn test
+          docker run --rm $IMAGE_NAME:$IMAGE_TAG yarn test
