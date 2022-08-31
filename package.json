@@ -1,5 +1,6 @@
 {
   "name": "tsoa-starter",
+  "description": "🚀 Starter repo for building Open API compatible and runtime typesafe servers.",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",

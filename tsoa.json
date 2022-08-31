@@ -1,19 +1,20 @@
 {
-    "entryFile": "src/app.ts",
-    "noImplicitAdditionalProperties": "throw-on-extras",
-    "spec": {
-        "outputDirectory": "dist",
-        "specVersion": 3,
-        "securityDefinitions": {
-          "api_key": {
-            "type": "apiKey",
-            "name": "access_token",
-            "in": "header"
-          }
-        }
-    },
-    "routes": {
-        "routesDir": "src/generated",
-        "authenticationModule": "./src/auth.ts"
+  "entryFile": "src/app.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "spec": {
+    "name": "TSOA Starter",
+    "outputDirectory": "dist",
+    "specVersion": 3,
+    "securityDefinitions": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "access_token",
+        "in": "header"
+      }
     }
+  },
+  "routes": {
+    "routesDir": "src/generated",
+    "authenticationModule": "./src/auth.ts"
+  }
 }
