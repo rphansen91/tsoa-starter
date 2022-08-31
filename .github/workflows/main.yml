@@ -1,0 +1,28 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_NAME: tsoa-starter
+  IMAGE_TAG: ${{ github.sha }}
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Build image
+        run: |
+          docker build -t $IMAGE_NAME:$IMAGE_TAG .
+
+      - name: Test image
+        run: |
+          docker run --rm -it $IMAGE_NAME:$IMAGE_TAG yarn test
