@@ -1,4 +1,4 @@
-import { Get, Route, Tags, Controller } from 'tsoa';
+import { Controller, Get, Route, Tags } from 'tsoa';
 import { Inject } from 'typescript-ioc';
 import { Health } from './health';
 import { HealthService } from './service';

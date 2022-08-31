@@ -6,9 +6,17 @@
     ],
     "spec": {
         "outputDirectory": "dist",
-        "specVersion": 3
+        "specVersion": 3,
+        "securityDefinitions": {
+          "api_key": {
+            "type": "apiKey",
+            "name": "access_token",
+            "in": "header"
+          }
+        }
     },
     "routes": {
-        "routesDir": "src/generated"
+        "routesDir": "src/generated",
+        "authenticationModule": "./src/auth.ts"
     }
 }
