@@ -9,9 +9,10 @@
   "scripts": {
     "test": "jest",
     "test:e2e": "jest --testRegex '\\.e2e\\.(ts|tsx|js)$'",
-    "dev": "concurrently \"dotenv -- nodemon\" \"nodemon -x tsoa spec-and-routes\"",
+    "dev": "dotenv -- nodemon",
     "start": "node dist/src/index.js",
-    "build": "tsoa spec-and-routes && tsc --pretty",
+    "generate": "rm -f src/generated/routes.ts && tsoa spec-and-routes",
+    "build": "npm run generate && tsc --pretty",
     "lint": "eslint ./src",
     "fix": "eslint ./src --fix",
     "format:check": "prettier --check src"
@@ -29,7 +30,6 @@
     "@types/swagger-ui-express": "^4.1.3",
     "@typescript-eslint/eslint-plugin": "^5.36.1",
     "@typescript-eslint/parser": "^5.36.1",
-    "concurrently": "^7.3.0",
     "dotenv-cli": "^6.0.0",
     "eslint": "^8.23.0",
     "eslint-config-prettier": "^8.5.0",

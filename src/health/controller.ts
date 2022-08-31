@@ -8,6 +8,10 @@ export class HealthController extends Controller {
   @Inject
   private healthService: HealthService;
 
+  /**
+   * Get the health of the service
+   */
+
   @Get()
   @Tags('health')
   public async getHealth(): Promise<Health> {

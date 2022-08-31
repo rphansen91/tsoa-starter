@@ -9,6 +9,10 @@ export class UserController extends Controller {
   @Inject
   private userService: UserService;
 
+  /**
+   * Gets the user if logged in
+   */
+
   @Get()
   @Tags('user')
   @Security('api_key')
